@@ -6,9 +6,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Tenda",
     pricePerDay: 45000,
     stock: 8,
-    image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
     spec: "Frame Alumunium Alloy, PU 3000mm Waterproof",
-    desc: "Tenda gunung profesional kapasitas 4 orang dengan daya tahan angin kencang."
+    desc: "Tenda gunung profesional kapasitas 4 orang dengan daya tahan angin kencang.",
   },
   {
     id: "p2",
@@ -17,9 +18,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Tenda",
     pricePerDay: 40000,
     stock: 12,
-    image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80",
     spec: "Double Layer, Terpal PE Floor",
-    desc: "Tenda keluarga atau kelompok 4-5 orang favorit para pendaki."
+    desc: "Tenda keluarga atau kelompok 4-5 orang favorit para pendaki.",
   },
   {
     id: "p3",
@@ -28,9 +30,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Tenda",
     pricePerDay: 30000,
     stock: 4,
-    image: "https://images.unsplash.com/photo-1478827536114-da961b7f86d2?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1478827536114-da961b7f86d2?auto=format&fit=crop&w=600&q=80",
     spec: "Ultralight 1.8kg, Siliconized Fabric",
-    desc: "Pilihan terbaik untuk pendaki solo / berdua yang mengutamakan bobot ringan."
+    desc: "Pilihan terbaik untuk pendaki solo / berdua yang mengutamakan bobot ringan.",
   },
   {
     id: "p4",
@@ -39,9 +42,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Carrier",
     pricePerDay: 50000,
     stock: 5,
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
     spec: "Anti-Gravity Backsystem, Fit-on-the-Fly",
-    desc: "Carrier premium dengan teknologi AG untuk beban berat."
+    desc: "Carrier premium dengan teknologi AG untuk beban berat.",
   },
   {
     id: "p5",
@@ -50,9 +54,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Carrier",
     pricePerDay: 45000,
     stock: 9,
-    image: "https://images.unsplash.com/photo-1622260614153-03223fb72052?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1622260614153-03223fb72052?auto=format&fit=crop&w=600&q=80",
     spec: "VariQuick Adjustment System",
-    desc: "Ransel ekspedisi tangguh asal Jerman. Sirkulasi udara optimal."
+    desc: "Ransel ekspedisi tangguh asal Jerman. Sirkulasi udara optimal.",
   },
   {
     id: "p6",
@@ -61,9 +66,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Carrier",
     pricePerDay: 30000,
     stock: 15,
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
     spec: "Tropic Transit System, Padded Hipbelt",
-    desc: "Carrier ideal untuk perjalanan tektok 2 hari 1 malam."
+    desc: "Carrier ideal untuk perjalanan tektok 2 hari 1 malam.",
   },
   {
     id: "p7",
@@ -72,9 +78,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Sleeping Gear",
     pricePerDay: 25000,
     stock: 20,
-    image: "https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=600&q=80",
     spec: "Fill Power 700, Comfort 0°C",
-    desc: "Kantong tidur hangat berbahan bulu angsa asli."
+    desc: "Kantong tidur hangat berbahan bulu angsa asli.",
   },
   {
     id: "p8",
@@ -83,9 +90,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Sleeping Gear",
     pricePerDay: 15000,
     stock: 2,
-    image: "https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?auto=format&fit=crop&w=600&q=80",
     spec: "Ketebalan 6cm, Built-in Pump",
-    desc: "Matras tiup empuk anti dingin dari tanah."
+    desc: "Matras tiup empuk anti dingin dari tanah.",
   },
   {
     id: "p9",
@@ -94,9 +102,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Alat Masak",
     pricePerDay: 20000,
     stock: 18,
-    image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=600&q=80",
     spec: "Hard Anodized Alumunium",
-    desc: "Set masak outdoor lengkap untuk 3-4 orang + Kompor."
+    desc: "Set masak outdoor lengkap untuk 3-4 orang + Kompor.",
   },
   {
     id: "p10",
@@ -105,9 +114,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Penerangan",
     pricePerDay: 12000,
     stock: 0,
-    image: "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80",
     spec: "3 Mode Lampu + Night Vision",
-    desc: "Senter kepala profesional. Sinar terang fokus."
+    desc: "Senter kepala profesional. Sinar terang fokus.",
   },
   {
     id: "pkg1",
@@ -116,9 +126,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Solo",
     pricePerDay: 65000,
     stock: 5,
-    image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80",
     spec: "Tenda 1-2P, Carrier 45L, Sleeping Bag, Matras, Kompor",
-    desc: "Paket lengkap untuk pendaki tunggal."
+    desc: "Paket lengkap untuk pendaki tunggal.",
   },
   {
     id: "pkg2",
@@ -127,9 +138,10 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Paling Laris",
     pricePerDay: 115000,
     stock: 10,
-    image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80",
     spec: "Tenda 2-3P, 2x Sleeping Bag, 2x Matras, Nesting, Kompor, Lampu",
-    desc: "Paket ideal dan nyaman untuk perjalanan 2 orang."
+    desc: "Paket ideal dan nyaman untuk perjalanan 2 orang.",
   },
   {
     id: "pkg3",
@@ -138,10 +150,11 @@ const DEFAULT_PRODUCTS = [
     categoryLabel: "Grup 4 Orang",
     pricePerDay: 185000,
     stock: 3,
-    image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=600&q=80",
     spec: "Tenda 4-5P, 4x Sleeping Bag, 4x Matras, Nesting Besar, Kompor, Headlamp",
-    desc: "Solusi hemat untuk rombongan tim pendaki 4 orang."
-  }
+    desc: "Solusi hemat untuk rombongan tim pendaki 4 orang.",
+  },
 ];
 
 function renderProductSkeletons() {
@@ -236,7 +249,7 @@ function showToast(message) {
 function setupDateConstraints() {
   const startInput = document.getElementById("rentStartDate");
   const endInput = document.getElementById("rentEndDate");
-  
+
   if (!startInput || !endInput) return;
 
   const today = new Date().toISOString().split("T")[0];
@@ -264,7 +277,7 @@ function formatRupiah(amount) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   }).format(amount);
 }
 
@@ -296,7 +309,7 @@ function setupNavigation() {
     }
   });
 
-  navMenu?.querySelectorAll("a").forEach(link => {
+  navMenu?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       closeMenu();
     });
@@ -311,7 +324,11 @@ function setupNavigation() {
 
   // Close menu saat klik di luar
   document.addEventListener("click", (e) => {
-    if (navMenu?.classList.contains("active") && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+    if (
+      navMenu?.classList.contains("active") &&
+      !navMenu.contains(e.target) &&
+      !mobileToggle.contains(e.target)
+    ) {
       closeMenu();
     }
   });
@@ -326,11 +343,12 @@ function renderProducts(productList) {
     return;
   }
 
-  const catalogItems = productList.filter(p => p.category !== "paket");
+  const catalogItems = productList.filter((p) => p.category !== "paket");
 
-  grid.innerHTML = catalogItems.map(prod => {
-    const total = prod.pricePerDay * rentalDays;
-    return `
+  grid.innerHTML = catalogItems
+    .map((prod) => {
+      const total = prod.pricePerDay * rentalDays;
+      return `
       <div class="prod-card">
         <div class="prod-img-box">
           <img src="${prod.image}" loading="lazy" alt="${prod.name}">
@@ -353,7 +371,8 @@ function renderProducts(productList) {
         </div>
       </div>
     `;
-  }).join("");
+    })
+    .join("");
 }
 
 function setupFilters() {
@@ -365,25 +384,36 @@ function setupFilters() {
   let sortMode = "default";
 
   function apply() {
-    let filtered = PRODUCTS.filter(p =>
-      p.category !== "paket" &&
-      (cat === "all" || p.category === cat) &&
-      (p.name.toLowerCase().includes(q) || (p.spec || "").toLowerCase().includes(q))
+    let filtered = PRODUCTS.filter(
+      (p) =>
+        p.category !== "paket" &&
+        (cat === "all" || p.category === cat) &&
+        (p.name.toLowerCase().includes(q) ||
+          (p.spec || "").toLowerCase().includes(q)),
     );
 
-    if (sortMode === "price-asc") filtered.sort((a, b) => a.pricePerDay - b.pricePerDay);
-    else if (sortMode === "price-desc") filtered.sort((a, b) => b.pricePerDay - a.pricePerDay);
-    else if (sortMode === "stock-desc") filtered.sort((a, b) => b.stock - a.stock);
+    if (sortMode === "price-asc")
+      filtered.sort((a, b) => a.pricePerDay - b.pricePerDay);
+    else if (sortMode === "price-desc")
+      filtered.sort((a, b) => b.pricePerDay - a.pricePerDay);
+    else if (sortMode === "stock-desc")
+      filtered.sort((a, b) => b.stock - a.stock);
 
     renderProducts(filtered);
   }
 
-  searchInput?.addEventListener("input", e => { q = e.target.value.toLowerCase(); apply(); });
-  sortSelect?.addEventListener("change", e => { sortMode = e.target.value; apply(); });
+  searchInput?.addEventListener("input", (e) => {
+    q = e.target.value.toLowerCase();
+    apply();
+  });
+  sortSelect?.addEventListener("change", (e) => {
+    sortMode = e.target.value;
+    apply();
+  });
 
-  filterBtns.forEach(btn => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
+      filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       cat = btn.dataset.category;
       apply();
@@ -399,14 +429,18 @@ function setupStepper() {
     renderProducts(PRODUCTS);
     updateCartUI();
   }
-  document.getElementById("decDaysBtn")?.addEventListener("click", () => update(rentalDays - 1));
-  document.getElementById("incDaysBtn")?.addEventListener("click", () => update(rentalDays + 1));
-  input?.addEventListener("change", e => update(e.target.value));
+  document
+    .getElementById("decDaysBtn")
+    ?.addEventListener("click", () => update(rentalDays - 1));
+  document
+    .getElementById("incDaysBtn")
+    ?.addEventListener("click", () => update(rentalDays + 1));
+  input?.addEventListener("change", (e) => update(e.target.value));
 }
 
-window.openProductDetail = function(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if(!p) return;
+window.openProductDetail = function (id) {
+  const p = PRODUCTS.find((x) => x.id === id);
+  if (!p) return;
   document.getElementById("modalBody").innerHTML = `
     <div style="display:flex; gap:2rem; flex-wrap:wrap;">
       <img src="${p.image}" style="width:100%; max-width:300px; object-fit:cover; filter:grayscale(20%);">
@@ -423,56 +457,69 @@ window.openProductDetail = function(id) {
   const modal = document.getElementById("productModal");
   modal?.classList.add("active");
   document.body.style.overflow = "hidden";
-}
+};
 
-window.closeModal = function() {
+window.closeModal = function () {
   const modal = document.getElementById("productModal");
   modal?.classList.remove("active");
   document.body.style.overflow = "auto";
-}
+};
 document.getElementById("closeModalBtn")?.addEventListener("click", closeModal);
 document.getElementById("modalOverlay")?.addEventListener("click", closeModal);
 
 // Close modal dengan ESC key
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && document.getElementById("productModal")?.classList.contains("active")) {
+  if (
+    e.key === "Escape" &&
+    document.getElementById("productModal")?.classList.contains("active")
+  ) {
     closeModal();
   }
 });
 
-window.addToCart = function(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if(!p) return;
-  if(p.stock === 0) { showToast(`${p.name} — Stok habis!`); return; }
-  const ex = cart.find(x => x.id === id);
-  if(ex) ex.qty++;
-  else cart.push({...p, qty: 1});
+window.addToCart = function (id) {
+  const p = PRODUCTS.find((x) => x.id === id);
+  if (!p) return;
+  if (p.stock === 0) {
+    showToast(`${p.name} — Stok habis!`);
+    return;
+  }
+  const ex = cart.find((x) => x.id === id);
+  if (ex) ex.qty++;
+  else cart.push({ ...p, qty: 1 });
   updateCartUI();
   showToast(`${p.name} ditambahkan ke keranjang ✓`);
   document.getElementById("cartDrawer").classList.add("active");
-}
+};
 
 function renderPackages(productList) {
   const pkgGrid = document.querySelector(".packages-grid");
   if (!pkgGrid) return;
-  
-  const pkgs = productList.filter(p => p.category === "paket");
-  if(pkgs.length === 0) {
+
+  const pkgs = productList.filter((p) => p.category === "paket");
+  if (pkgs.length === 0) {
     pkgGrid.innerHTML = `<p style="color:var(--clr-text-dim);">Belum ada paket bundling.</p>`;
     return;
   }
-  
-  pkgGrid.innerHTML = pkgs.map(pkg => {
-    const itemsHtml = pkg.spec.split(',').map(i => `<li>${i.trim()}</li>`).join("");
-    let featuredClass = pkg.categoryLabel?.toLowerCase().includes("laris") ? "pkg-featured" : "";
-    let btnClass = featuredClass ? "pkg-cta-primary" : "";
 
-    // Gunakan foto dari Supabase Storage, fallback ke gambar default jika belum ada
-    const imgSrc = pkg.image && pkg.image.startsWith("http")
-      ? pkg.image
-      : "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80";
+  pkgGrid.innerHTML = pkgs
+    .map((pkg) => {
+      const itemsHtml = pkg.spec
+        .split(",")
+        .map((i) => `<li>${i.trim()}</li>`)
+        .join("");
+      let featuredClass = pkg.categoryLabel?.toLowerCase().includes("laris")
+        ? "pkg-featured"
+        : "";
+      let btnClass = featuredClass ? "pkg-cta-primary" : "";
 
-    return `
+      // Gunakan foto dari Supabase Storage, fallback ke gambar default jika belum ada
+      const imgSrc =
+        pkg.image && pkg.image.startsWith("http")
+          ? pkg.image
+          : "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80";
+
+      return `
       <div class="pkg-card ${featuredClass}" data-tier="${pkg.categoryLabel}">
         <div class="pkg-img-box" style="
           position: relative;
@@ -497,7 +544,7 @@ function renderPackages(productList) {
           >
           ${featuredClass ? `<div style="position:absolute; top:0.75rem; right:0.75rem; background:var(--clr-accent); color:#fff; font-family:var(--font-mono); font-size:0.65rem; padding:0.25rem 0.5rem; text-transform:uppercase; letter-spacing:0.1em;">PALING LARIS</div>` : ""}
         </div>
-        <div class="pkg-tier">${pkg.categoryLabel || 'Paket'} (Stok: ${pkg.stock})</div>
+        <div class="pkg-tier">${pkg.categoryLabel || "Paket"} (Stok: ${pkg.stock})</div>
         <h3 class="pkg-name">${pkg.name}</h3>
         <div class="pkg-price-wrap">
           <span class="pkg-price">${formatRupiah(pkg.pricePerDay)}</span>
@@ -509,24 +556,28 @@ function renderPackages(productList) {
         <button class="pkg-cta ${btnClass}" onclick="addToCart('${pkg.id}')">Tambah Paket →</button>
       </div>
     `;
-  }).join("");
+    })
+    .join("");
 }
 
-
 function updateCartUI() {
-  document.getElementById("cartCount").innerText = cart.reduce((s,i) => s + i.qty, 0);
+  document.getElementById("cartCount").innerText = cart.reduce(
+    (s, i) => s + i.qty,
+    0,
+  );
   document.getElementById("cartDurationLabel").innerText = `${rentalDays} Hari`;
-  
+
   const list = document.getElementById("cartItemsList");
   let grand = 0;
-  
-  if(cart.length === 0) {
+
+  if (cart.length === 0) {
     list.innerHTML = `<p style="color:var(--clr-text-dim);">Keranjang kosong.</p>`;
   } else {
-    list.innerHTML = cart.map((item, i) => {
-      const sub = item.pricePerDay * item.qty * rentalDays;
-      grand += sub;
-      return `
+    list.innerHTML = cart
+      .map((item, i) => {
+        const sub = item.pricePerDay * item.qty * rentalDays;
+        grand += sub;
+        return `
         <div class="cart-item">
           <img src="${item.image}" class="cart-item-img">
           <div class="cart-item-info">
@@ -541,23 +592,27 @@ function updateCartUI() {
           <button onclick="removeItem(${i})" style="color:var(--clr-accent);">✕</button>
         </div>
       `;
-    }).join("");
+      })
+      .join("");
   }
   document.getElementById("cartTotalPrice").innerText = formatRupiah(grand);
 }
 
-window.changeQty = function(i, d) {
-  if(cart[i]) {
+window.changeQty = function (i, d) {
+  if (cart[i]) {
     cart[i].qty += d;
-    if(cart[i].qty <= 0) cart.splice(i, 1);
+    if (cart[i].qty <= 0) cart.splice(i, 1);
   }
   updateCartUI();
-}
-window.removeItem = function(i) { cart.splice(i, 1); updateCartUI(); }
+};
+window.removeItem = function (i) {
+  cart.splice(i, 1);
+  updateCartUI();
+};
 
 function setupCartDrawer() {
   const cartDrawer = document.getElementById("cartDrawer");
-  
+
   function openCart() {
     cartDrawer?.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -583,9 +638,13 @@ function setupCartDrawer() {
   // Prevent scroll jika cart panel scroll
   const cartPanel = document.querySelector(".cart-panel");
   if (cartPanel) {
-    cartPanel.addEventListener("touchmove", (e) => {
-      e.stopPropagation();
-    }, { passive: true });
+    cartPanel.addEventListener(
+      "touchmove",
+      (e) => {
+        e.stopPropagation();
+      },
+      { passive: true },
+    );
   }
 }
 
@@ -644,89 +703,112 @@ function setupCheckout() {
   });
   endInput?.addEventListener("change", updateDays);
 
-  document.getElementById("checkoutWaBtn")?.addEventListener("click", async () => {
-    if (!cart.length) { showToast("Keranjang masih kosong."); return; }
-    const name = document.getElementById("renterName").value.trim();
-    const startDate = startInput.value;
-    const endDate = endInput.value;
-
-    if (!name || !startDate || !endDate) {
-      showToast("Mohon lengkapi Nama, Tanggal Ambil & Kembali.");
-      return;
-    }
-
-    const checkoutBtn = document.getElementById("checkoutWaBtn");
-    const originalText = checkoutBtn.innerText;
-    
-    // Tampilkan status loading
-    checkoutBtn.disabled = true;
-    checkoutBtn.innerText = "⏳ Memverifikasi Stok...";
-
-    // 1. Ambil data produk terupdate dari Supabase
-    let latestProducts = PRODUCTS;
-    if (window.MontanaDB) {
-      const remoteData = await window.MontanaDB.fetchProducts();
-      if (remoteData && remoteData.length > 0) {
-        latestProducts = remoteData;
-        PRODUCTS = remoteData; // sync local cache
+  document
+    .getElementById("checkoutWaBtn")
+    ?.addEventListener("click", async () => {
+      if (!cart.length) {
+        showToast("Keranjang masih kosong.");
+        return;
       }
-    }
+      const name = document.getElementById("renterName").value.trim();
+      const startDate = startInput.value;
+      const endDate = endInput.value;
 
-    // 2. Validasi stok untuk setiap item di keranjang
-    const outOfStockItems = [];
-    cart.forEach(cartItem => {
-      const dbProduct = latestProducts.find(p => p.id === cartItem.id);
-      if (!dbProduct) return; // ignore if not found in db
-      
-      if (dbProduct.stock < cartItem.qty) {
-        outOfStockItems.push({
-          name: cartItem.name,
-          requested: cartItem.qty,
-          available: dbProduct.stock
-        });
+      if (!name || !startDate || !endDate) {
+        showToast("Mohon lengkapi Nama, Tanggal Ambil & Kembali.");
+        return;
       }
-    });
 
-    // Jika ada yang melebihi stok, batalkan checkout dan beri tahu user
-    if (outOfStockItems.length > 0) {
+      const checkoutBtn = document.getElementById("checkoutWaBtn");
+      const originalText = checkoutBtn.innerText;
+
+      // Tampilkan status loading
+      checkoutBtn.disabled = true;
+      checkoutBtn.innerText = "⏳ Memverifikasi Stok...";
+
+      // 1. Ambil data produk terupdate dari Supabase
+      let latestProducts = PRODUCTS;
+      if (window.MontanaDB) {
+        const remoteData = await window.MontanaDB.fetchProducts();
+        if (remoteData && remoteData.length > 0) {
+          latestProducts = remoteData;
+          PRODUCTS = remoteData; // sync local cache
+        }
+      }
+
+      // 2. Validasi stok untuk setiap item di keranjang
+      const outOfStockItems = [];
+      cart.forEach((cartItem) => {
+        const dbProduct = latestProducts.find((p) => p.id === cartItem.id);
+        if (!dbProduct) return; // ignore if not found in db
+
+        if (dbProduct.stock < cartItem.qty) {
+          outOfStockItems.push({
+            name: cartItem.name,
+            requested: cartItem.qty,
+            available: dbProduct.stock,
+          });
+        }
+      });
+
+      // Jika ada yang melebihi stok, batalkan checkout dan beri tahu user
+      if (outOfStockItems.length > 0) {
+        checkoutBtn.disabled = false;
+        checkoutBtn.innerText = originalText;
+
+        const itemErrors = outOfStockItems
+          .map(
+            (item) =>
+              `• ${item.name}: dipesan ${item.requested} unit, tersedia ${item.available} unit`,
+          )
+          .join("\n");
+
+        alert(
+          `⚠️ Stok Tidak Cukup!\nBeberapa item di keranjang melebihi stok saat ini:\n\n${itemErrors}\n\nSilakan sesuaikan jumlah pesanan Anda.`,
+        );
+        updateCartUI(); // Refresh UI keranjang
+        return;
+      }
+
+      let total = 0;
+      let txt = cart
+        .map((c, i) => {
+          const sub = c.pricePerDay * c.qty * rentalDays;
+          total += sub;
+          return `${i + 1}. ${c.name} (${c.qty}x) - ${formatRupiah(sub)}`;
+        })
+        .join("\n");
+
+      // 3. Simpan pesanan ke database Supabase
+      if (window.MontanaDB) {
+        const orderItems = cart.map((c) => ({
+          id: c.id,
+          name: c.name,
+          qty: c.qty,
+          pricePerDay: c.pricePerDay,
+        }));
+        try {
+          await window.MontanaDB.createOrder({
+            name,
+            startDate,
+            endDate,
+            rentalDays,
+            items: orderItems,
+            totalPrice: total,
+          });
+        } catch (err) {
+          console.error("Gagal menyimpan riwayat pesanan ke database:", err);
+        }
+      }
+
+      // 4. Kembalikan state tombol
       checkoutBtn.disabled = false;
       checkoutBtn.innerText = originalText;
-      
-      const itemErrors = outOfStockItems.map(item => 
-        `• ${item.name}: dipesan ${item.requested} unit, tersedia ${item.available} unit`
-      ).join("\n");
-      
-      alert(`⚠️ Stok Tidak Cukup!\nBeberapa item di keranjang melebihi stok saat ini:\n\n${itemErrors}\n\nSilakan sesuaikan jumlah pesanan Anda.`);
-      updateCartUI(); // Refresh UI keranjang
-      return;
-    }
 
-    let total = 0;
-    let txt = cart.map((c, i) => {
-      const sub = c.pricePerDay * c.qty * rentalDays;
-      total += sub;
-      return `${i + 1}. ${c.name} (${c.qty}x) - ${formatRupiah(sub)}`;
-    }).join("\n");
-
-    // 3. Simpan pesanan ke database Supabase
-    if (window.MontanaDB) {
-      const orderItems = cart.map(c => ({ id: c.id, name: c.name, qty: c.qty, pricePerDay: c.pricePerDay }));
-      try {
-        await window.MontanaDB.createOrder({
-          name, startDate, endDate, rentalDays,
-          items: orderItems,
-          totalPrice: total
-        });
-      } catch (err) {
-        console.error("Gagal menyimpan riwayat pesanan ke database:", err);
-      }
-    }
-
-    // 4. Kembalikan state tombol
-    checkoutBtn.disabled = false;
-    checkoutBtn.innerText = originalText;
-
-    const msg = `Halo Admin Montana,\n\nNama: ${name}\nTgl Ambil: ${startDate}\nTgl Kembali: ${endDate}\nDurasi: ${rentalDays} Hari\n\nAlat:\n${txt}\n\nTotal: ${formatRupiah(total)}`;
-    window.open(`https://wa.me/6287789611762?text=${encodeURIComponent(msg)}`, "_blank");
-  });
+      const msg = `Halo Admin Montana,\n\nNama: ${name}\nTgl Ambil: ${startDate}\nTgl Kembali: ${endDate}\nDurasi: ${rentalDays} Hari\n\nAlat:\n${txt}\n\nTotal: ${formatRupiah(total)}`;
+      window.open(
+        `https://wa.me/6287789611762?text=${encodeURIComponent(msg)}`,
+        "_blank",
+      );
+    });
 }
