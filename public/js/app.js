@@ -812,3 +812,57 @@ function setupCheckout() {
       );
     });
 }
+
+// ========== LANGUAGE SWITCHING ==========
+let currentLanguage = localStorage.getItem("lang") || "id";
+
+function updateLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem("lang", lang);
+
+  // Update all elements with data-lang-key
+  document.querySelectorAll("[data-lang-key]").forEach((el) => {
+    const key = el.getAttribute("data-lang-key");
+    const text = TRANSLATIONS[lang]?.[key] || key;
+
+    // For buttons, input placeholders, and labels, set text content or value
+    if (el.tagName === "BUTTON" || el.tagName === "A") {
+      el.textContent = text;
+    } else if (el.tagName === "INPUT") {
+      el.placeholder = text;
+    } else if (el.tagName === "LABEL") {
+      el.textContent = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+
+  // Update language button styles
+  const btnId = document.getElementById("btnLangId");
+  const btnEn = document.getElementById("btnLangEn");
+
+  if (btnId && btnEn) {
+    if (lang === "id") {
+      btnId.style.color = "var(--clr-accent)";
+      btnEn.style.color = "var(--clr-text-dim)";
+    } else {
+      btnId.style.color = "var(--clr-text-dim)";
+      btnEn.style.color = "var(--clr-accent)";
+    }
+  }
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+}
+
+// Setup language button listeners
+document.getElementById("btnLangId")?.addEventListener("click", () => {
+  updateLanguage("id");
+});
+
+document.getElementById("btnLangEn")?.addEventListener("click", () => {
+  updateLanguage("en");
+});
+
+// Initialize language on page load
+updateLanguage(currentLanguage);
