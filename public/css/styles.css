@@ -479,15 +479,15 @@ button {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 6rem;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
 }
 
 .about-inner:last-of-type {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .about-img-stack {
@@ -1623,6 +1623,7 @@ button {
   .about-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
+    align-items: center;
   }
   
   .about-img-accent {
@@ -1769,6 +1770,8 @@ button {
 
   .about-inner {
     gap: 2rem;
+    grid-template-columns: 1fr;
+    align-items: center;
   }
 
   .about-quote-block {
@@ -2001,11 +2004,9 @@ button {
   }
 
   .about-inner {
+    grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .about-inner:last-of-type {
-    margin-top: 1rem;
+    align-items: center;
   }
 
   .about-img-main {
