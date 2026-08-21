@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montana Outdoor — Sewa Alat Mendaki Gunung</title>
+  <meta name="description" content="Sewa perlengkapan mendaki gunung berkualitas. Tenda, carrier, sleeping bag, dan gear outdoor premium. Montana Outdoor — Basecamp para petualang Indonesia.">
+  <link rel="icon" href="assets/image.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/image.png" alt="Montana Outdoor Logo" class="logo-img">
+        <span>MONTANA OUTDOOR</span>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-item" data-lang-key="nav-about">Tentang</a>
+        <a href="#catalog" class="nav-item" data-lang-key="nav-catalog">Katalog</a>
+        <a href="#packages" class="nav-item" data-lang-key="nav-packages">Paket</a>
+        <a href="#how-it-works" class="nav-item" data-lang-key="nav-how-it-works">Cara Sewa</a>
+        <a href="admin.html" class="nav-item nav-admin" data-lang-key="nav-admin">⚙ Admin</a>
+      </nav>
+      <div class="nav-right">
+        <!-- Language Switcher Widget -->
+        <div class="lang-switcher" style="display: flex; gap: 0.25rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: bold; border: 1px solid var(--clr-border); padding: 0.25rem 0.5rem; letter-spacing: 0.05em; background: rgba(0,0,0,0.25);">
+          <button id="btnLangId" style="color: var(--clr-accent); cursor: pointer; padding: 2px 4px; transition: color 0.15s;">ID</button>
+          <span style="color: var(--clr-border);">|</span>
+          <button id="btnLangEn" style="color: var(--clr-text-dim); cursor: pointer; padding: 2px 4px; transition: color 0.15s;">EN</button>
+        </div>
+
+        <button class="nav-cart" id="openCartBtn" aria-label="Keranjang">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="nav-cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="mobileToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO — Full-bleed editorial -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80" alt="Mountain peak" class="hero-bg-img">
+      <div class="hero-bg-mask"></div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span data-lang-key="hero-eyebrow">Est. 2019 — Basecamp Indonesia</span>
+        </div>
+        <h1 class="hero-headline">
+          <em data-lang-key="hero-headline-1">Taklukkan</em><br>
+          <span data-lang-key="hero-headline-2">Puncak</span><br>
+          <span class="headline-stroke" data-lang-key="hero-headline-3">Tertinggi.</span>
+        </h1>
+        <p class="hero-body-text" data-lang-key="hero-desc">
+          Penyewaan alat outdoor premium terkurasi. Gear higienis, teruji di cuaca ekstrem, dan siap menemani perjalanan ekspedisi Anda.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn-expedition" data-lang-key="hero-btn-catalog">EKSPLOR KATALOG →</a>
+          <a href="#packages" class="btn-ghost" data-lang-key="hero-btn-packages">PAKET BUNDLING</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-stat-block">
+          <div class="hero-stat">
+            <span class="stat-big">100%</span>
+            <span class="stat-small" data-lang-key="hero-stat-1">Gear Steril</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="hero-stat">
+            <span class="stat-big">4.9★</span>
+            <span class="stat-small" data-lang-key="hero-stat-2">Rating Pendaki</span>
+          </div>
+        </div>
+
+        <div class="hero-badge-wrap">
+          <div class="hero-badge">
+            <span class="hb-dot"></span>
+            <span data-lang-key="hero-badge">Stok Ready Hari Ini</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-ticker">
+      <div class="ticker-track">
+        <span data-lang-key="ticker-tenda">Tenda Waterproof</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-carrier">Carrier Ergonomis</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-sb">Sleeping Bag Down</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-cooking">Cooking Set Ultra Light</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-headlamp">Headlamp Bright Focus</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-tenda">Tenda Waterproof</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-carrier">Carrier Ergonomis</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-sb">Sleeping Bag Down</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-cooking">Cooking Set Ultra Light</span> <span class="ticker-dot">•</span>
+        <span data-lang-key="ticker-headlamp">Headlamp Bright Focus</span> <span class="ticker-dot">•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img-stack">
+        <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80" alt="Hiker on ridge" class="about-img-main">
+        <div class="about-quote-block" data-lang-key="about-quote">
+          "MANUSIA TIDAK MENAKLUKKAN GUNUNG, TAPI DIRI SENDIRI."
+        </div>
+      </div>
+    </div>
+
+    <div class="about-inner">
+      <div class="about-content">
+        <span class="overline-text" data-lang-key="about-eyebrow">— MANIFESTO KAMI</span>
+        <h2 class="about-title">
+          <span data-lang-key="about-title-1">Standar baru</span><br>
+          <em data-lang-key="about-title-2">sewa perlengkapan</em><br>
+          <span data-lang-key="about-title-3">outdoor.</span>
+        </h2>
+        <p class="about-desc" data-lang-key="about-desc">
+          Montana Outdoor berdiri dari kecintaan mendalam pada alam bebas. Kami percaya bahwa setiap pendakian yang aman dimulai dari perlengkapan yang andal.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar">
+            <span class="pillar-num">01</span>
+            <div>
+              <strong data-lang-key="about-pillar-1-title">Sanitasi & Washing Pro</strong>
+              <p data-lang-key="about-pillar-1-desc">Setiap tenda & SB dicuci dengan pembersih khusus anti-bakteri setelah digunakan.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">02</span>
+            <div>
+              <strong data-lang-key="about-pillar-2-title">Inspeksi Keamanan Strict</strong>
+              <p data-lang-key="about-pillar-2-desc">Pengecekan rutin pada jahitan, zipper, frame, dan ketahanan air (PU Rating).</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">03</span>
+            <div>
+              <strong data-lang-key="about-pillar-3-title">Proses Cepat via WA</strong>
+              <p data-lang-key="about-pillar-3-desc">Pemesanan tanpa ribet, langsung terhubung dengan admin via WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="catalog" id="catalog">
+    <div class="catalog-header">
+      <div>
+        <span class="overline-text" data-lang-key="catalog-eyebrow">— KATALOG UTAMA</span>
+        <h2 class="section-h2"><span data-lang-key="catalog-title">Pilih Gear Petualangan</span></h2>
+      </div>
+
+      <div class="days-widget">
+        <span class="days-label" data-lang-key="catalog-duration">Durasi Sewa:</span>
+        <div class="days-control">
+          <button class="days-btn" id="decDaysBtn">-</button>
+          <input type="number" id="rentalDaysInput" value="2" min="1" max="14" readonly>
+          <button class="days-btn" id="incDaysBtn">+</button>
+        </div>
+        <span class="days-suffix" data-lang-key="catalog-days">Hari</span>
+      </div>
+    </div>
+
+    <!-- Filter Rail -->
+    <div class="filter-rail">
+      <button class="pill active" data-category="all">Semua Gear</button>
+      <button class="pill" data-category="tenda">Tenda</button>
+      <button class="pill" data-category="carrier">Carrier</button>
+      <button class="pill" data-category="sleeping">Sleeping Gear</button>
+      <button class="pill" data-category="cooking">Alat Masak</button>
+      <button class="pill" data-category="gear">Penerangan & Gear</button>
+    </div>
+
+    <!-- Search & Sort Bar -->
+    <div class="catalog-search-wrap">
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+        <div class="search-field" style="flex:1; min-width:250px;">
+          <span class="search-ico">🔍</span>
+          <input type="text" id="searchInput" placeholder="Cari tenda 4p, carrier osprey, SB bulu angsa..." data-lang-key="catalog-search-placeholder">
+        </div>
+        <div>
+          <select id="sortSelect" style="padding: 0.75rem 1rem; background: var(--clr-bg-card); border: 1px solid var(--clr-border); color: var(--clr-text); font-family: var(--font-mono); font-size: 0.85rem; outline: none; cursor: pointer;">
+            <option value="default" data-lang-key="catalog-sort-default">Urutan Default</option>
+            <option value="price-asc" data-lang-key="catalog-sort-asc">Harga: Termurah → Termahal</option>
+            <option value="price-desc" data-lang-key="catalog-sort-desc">Harga: Termahal → Termurah</option>
+            <option value="stock-desc" data-lang-key="catalog-sort-stock">Stok Terbanyak</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Diinjeksi via JS app.js -->
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages" id="packages">
+    <div class="packages-header">
+      <span class="overline-text" data-lang-key="packages-eyebrow">— PAKET BUNDLING</span>
+      <h2 class="section-h2"><span data-lang-key="packages-title">Lebih Hemat Berpaket</span></h2>
+      <p class="packages-sub" data-lang-key="packages-desc">Solusi praktis siap jalan tanpa pusing memilih alat satu per satu.</p>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Diinjeksi via JS app.js renderPackages() -->
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="hiw" id="how-it-works">
+    <div class="hiw-inner">
+      <span class="overline-text" data-lang-key="hiw-eyebrow">— PROSEDUR SANGAT MUDAH</span>
+      <h2 class="section-h2"><span data-lang-key="hiw-title">Cara Peminjaman</span></h2>
+
+      <div class="hiw-steps">
+        <div class="hiw-step">
+          <div class="hiw-num">01</div>
+          <div class="hiw-line"></div>
+          <h4 data-lang-key="hiw-step-1-title">Pilih Perlengkapan</h4>
+          <p data-lang-key="hiw-step-1-desc">Tentukan gear atau paket bundling sesuai durasi pendakian Anda.</p>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-num">02</div>
+          <div class="hiw-line"></div>
+          <h4 data-lang-key="hiw-step-2-title">Checkout WhatsApp</h4>
+          <p data-lang-key="hiw-step-2-desc">Isi form nama & tanggal sewa, lalu kirim rincian pesanan otomatis ke WhatsApp Admin.</p>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-num">03</div>
+          <div class="hiw-line"></div>
+          <h4 data-lang-key="hiw-step-3-title">Ambil di Basecamp</h4>
+          <p data-lang-key="hiw-step-3-desc">Tunjukkan invoice WA saat tanggal ambil di lokasi toko Montana Outdoor.</p>
+        </div>
+
+        <div class="hiw-step">
+          <div class="hiw-num">04</div>
+          <div class="hiw-line-none"></div>
+          <h4 data-lang-key="hiw-step-4-title">Jelajahi Alam</h4>
+          <p data-lang-key="hiw-step-4-desc">Nikmati pendakian dengan peralatan steril & aman. Kembalikan tepat waktu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASECAMP LOCATION MAP -->
+  <section class="location" id="location" style="padding: var(--spacing-xl) 5%; background: var(--clr-bg-alt); border-top: 1px solid var(--clr-border);">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; flex-wrap: wrap;">
+      <div>
+        <span class="overline-text" data-lang-key="location-eyebrow">— LOKASI BASECAMP KAMI</span>
+        <h2 class="section-h2" style="margin-bottom:1.5rem;"><span data-lang-key="location-title">Kunjungi Toko Montana Outdoor</span></h2>
+        <p style="color: var(--clr-text-dim); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.7;" data-lang-key="location-desc">
+          Alat dapat diambil langsung di basecamp kami. Tim kami siap membantu mencocokkan ukuran carrier, fitting tenda, serta melakukan cek kelayakan bersama sebelum Anda mendaki.
+        </p>
+        <div style="border-left: 2px solid var(--clr-accent); padding-left: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
+          <p style="margin-bottom: 0.5rem; color: var(--clr-text); font-weight: bold;" data-lang-key="location-address-label">📍 Alamat Basecamp:</p>
+          <p style="color: var(--clr-text-dim); margin-bottom: 1rem;" data-lang-key="location-address">847G+89M, Gerung Sel., Kec. Gerung, Kabupaten Lombok Barat, Nusa Tenggara Barat 83363</p>
+          <p style="margin-bottom: 0.5rem; color: var(--clr-text); font-weight: bold;" data-lang-key="location-hours-label">⏰ Jam Operasional:</p>
+          <p style="color: var(--clr-text-dim);" data-lang-key="location-hours">Setiap Hari: 08:00 — 22:00 WITA</p>
+        </div>
+        <a href="https://www.google.com/maps/place/Montana+Outdoor/@-8.6866608,116.1259131,19.75z/data=!4m6!3m5!1s0x2dcdbd00324965a5:0x975257f963e2239f!8m2!3d-8.6866608!4d116.1259131!16s%2Fg%2F11z94qfx9w" target="_blank" class="btn-expedition" style="margin-top: 2.5rem; padding: 0.8rem 1.5rem; font-size: 0.85rem;" data-lang-key="location-maps-btn">
+          Buka di Google Maps ↗
+        </a>
+      </div>
+      <div style="border: 1px solid var(--clr-border); height: 450px; overflow: hidden; position: relative;">
+        <!-- Embedded Google Maps iframe with dark grayscale styling pointing to Gerung, Lombok Barat location -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.31682858021!2d116.12372445!3d-8.6866608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbd00324965a5%3A0x975257f963e2239f!2sMontana%20Outdoor!5e0!3m2!1sid!2sid!4v1787300000000!5m2!1sid!2sid" 
+          width="100%" 
+          height="100%" 
+          style="border:0; filter: grayscale(100%) invert(90%) contrast(1.1) brightness(0.95);" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/image.png" alt="Montana Outdoor Logo" class="logo-img">
+          <span>MONTANA OUTDOOR</span>
+        </div>
+        <p data-lang-key="footer-desc">Platform penyewaan peralatan mendaki gunung & gear outdoor terpercaya. Utamakan keselamatan dan kenyamanan pendakian Anda.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TK</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-block">
+        <h5 data-lang-key="footer-nav-title">Navigasi</h5>
+        <a href="#about" data-lang-key="footer-nav-about">Tentang Kami</a>
+        <a href="#catalog" data-lang-key="footer-nav-catalog">Katalog Gear</a>
+        <a href="#packages" data-lang-key="footer-nav-packages">Paket Bundling</a>
+        <a href="#location" data-lang-key="footer-nav-location">Lokasi Basecamp</a>
+      </div>
+
+      <div class="footer-contact-block">
+        <h5 data-lang-key="footer-contact-title">Basecamp Montana</h5>
+        <p data-lang-key="location-address">Gerung Sel., Kec. Gerung, Kabupaten Lombok Barat, NTB 83363</p>
+        <p>WhatsApp: +62 877-8961-1762</p>
+        <p data-lang-key="footer-contact-hours">Buka: 08.00 — 22.00 WITA</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-lang-key="footer-rights">© 2026 Montana Outdoor. All Rights Reserved.</span>
+      <a href="admin.html" class="footer-admin-link" data-lang-key="footer-admin">⚙ Mode Admin Dashboard</a>
+    </div>
+  </footer>
+
+  <!-- MODAL DETAIL PRODUK -->
+  <div class="modal" id="productModal">
+    <div class="modal-backdrop" id="modalOverlay"></div>
+    <div class="modal-box">
+      <button class="modal-x" id="closeModalBtn">✕</button>
+      <div id="modalBody">
+        <!-- Diinjeksi via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-backdrop" id="cartOverlay"></div>
+    <aside class="cart-panel">
+      <div class="cart-panel-head">
+        <h3 data-lang-key="cart-title">Keranjang Sewa</h3>
+        <button class="cart-x" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="cart-panel-body" id="cartItemsList">
+        <!-- Diinjeksi via JS -->
+      </div>
+
+      <div class="cart-panel-foot">
+        <div class="cart-totals">
+          <div class="ct-row">
+            <span data-lang-key="cart-duration-label">Durasi Sewa:</span>
+            <span id="cartDurationLabel">2 Hari</span>
+          </div>
+          <div class="ct-row ct-total">
+            <span data-lang-key="cart-total-label">Total Estimasi:</span>
+            <span id="cartTotalPrice">Rp 0</span>
+          </div>
+        </div>
+
+        <div class="cart-form">
+          <input type="text" id="renterName" placeholder="Nama Lengkap Pemohon" data-lang-placeholder="cart-name-placeholder" required>
+          <div style="display: flex; gap: 0.5rem;">
+            <div style="flex: 1;">
+              <label style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--clr-text-dim);" data-lang-key="cart-date-start">Tgl Ambil</label>
+              <input type="date" id="rentStartDate" style="padding: 0.75rem;">
+            </div>
+            <div style="flex: 1;">
+              <label style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--clr-text-dim);" data-lang-key="cart-date-end">Tgl Kembali</label>
+              <input type="date" id="rentEndDate" style="padding: 0.75rem;">
+            </div>
+          </div>
+          <button class="btn-expedition" id="checkoutWaBtn" style="width:100%;justify-content:center;" data-lang-key="cart-checkout-btn">
+            Pesan via WhatsApp →
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

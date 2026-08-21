@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Montana Outdoor</title>
+  <meta name="description" content="Halaman Admin Manajemen Stok Alat Mendaki & Peralatan Outdoor Montana Outdoor.">
+  <link rel="icon" href="assets/image.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Load Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .admin-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 5% 4rem 5%;
+    }
+    .admin-title-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--clr-border);
+      padding-bottom: 2rem;
+    }
+    .admin-h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .admin-subtitle {
+      color: var(--clr-text-dim);
+      font-size: 1rem;
+    }
+    .admin-table-wrap {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      overflow-x: auto;
+    }
+    .admin-table-toolbar {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--clr-border);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .admin-search {
+      flex: 1;
+      min-width: 250px;
+      padding: 0.75rem 1rem;
+      background: var(--clr-bg);
+      border: 1px solid var(--clr-border);
+      color: var(--clr-text);
+      font-family: var(--font-body);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .admin-table th {
+      padding: 1rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--clr-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .admin-table td {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--clr-border);
+      vertical-align: middle;
+      font-size: 0.95rem;
+    }
+    .admin-table tr:hover {
+      background: var(--clr-bg-alt);
+    }
+    .prod-cell {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .prod-cell-img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      filter: grayscale(20%);
+    }
+    .stock-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .stock-ctrl button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--clr-border);
+      color: var(--clr-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .stock-ctrl button:hover {
+      background: var(--clr-accent);
+      border-color: var(--clr-accent);
+    }
+    .stock-ctrl input {
+      width: 40px;
+      text-align: center;
+      background: transparent;
+      color: var(--clr-text);
+      font-family: var(--font-mono);
+      border: 1px solid var(--clr-border);
+      padding: 0.25rem;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .status-badge.ok {
+      color: #00ff66;
+      background: rgba(0, 255, 102, 0.08);
+      border: 1px solid rgba(0, 255, 102, 0.25);
+    }
+    .status-badge.low {
+      color: #ffb800;
+      background: rgba(255, 184, 0, 0.08);
+      border: 1px solid rgba(255, 184, 0, 0.25);
+    }
+    .status-badge.empty {
+      color: #ff4d00;
+      background: rgba(255, 77, 0, 0.08);
+      border: 1px solid rgba(255, 77, 0, 0.25);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--clr-text-dim);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--clr-bg-alt);
+      border: 1px solid var(--clr-border);
+      color: var(--clr-text);
+      font-family: var(--font-body);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--clr-accent);
+      outline: none;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Checklist Produk untuk Form Paket */
+    .paket-checklist-box {
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid var(--clr-border);
+      background: var(--clr-bg);
+      padding: 0.5rem;
+    }
+    .paket-checklist-box::-webkit-scrollbar { width: 4px; }
+    .paket-checklist-box::-webkit-scrollbar-track { background: var(--clr-bg); }
+    .paket-checklist-box::-webkit-scrollbar-thumb { background: var(--clr-accent); }
+
+    .checklist-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--clr-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 0.75rem 0.3rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0.75rem;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      border-radius: 2px;
+    }
+    .checklist-item:hover { background: var(--clr-bg-alt); }
+    .checklist-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--clr-accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .checklist-item-thumb {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      filter: grayscale(40%);
+      flex-shrink: 0;
+    }
+    .checklist-item-info { flex: 1; min-width: 0; }
+    .checklist-item-name {
+      font-size: 0.9rem;
+      font-family: var(--font-display);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .checklist-item-sub {
+      font-size: 0.72rem;
+      color: var(--clr-text-dim);
+      font-family: var(--font-mono);
+    }
+    .checklist-item-price {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--clr-accent);
+      flex-shrink: 0;
+    }
+    .checklist-empty {
+      text-align: center;
+      padding: 2rem;
+      color: var(--clr-text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* Sembunyikan area invoice di layar monitor biasa */
+    @media screen {
+      #printInvoiceArea {
+        display: none !important;
+      }
+    }
+
+    /* Print Invoice Styles */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printInvoiceArea, #printInvoiceArea * {
+        visibility: visible !important;
+      }
+      #printInvoiceArea {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #000000 !important;
+        background: #ffffff !important;
+        padding: 20px;
+        font-family: 'Space Mono', Courier, monospace;
+      }
+      .print-header {
+        border-bottom: 2px dashed #000000;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .print-title {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 5px 0;
+      }
+      .print-grid {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 5px;
+        margin-bottom: 20px;
+        font-size: 13px;
+      }
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      .print-table th {
+        border-bottom: 1px solid #000000;
+        text-align: left;
+        padding: 5px;
+        font-size: 12px;
+      }
+      .print-table td {
+        padding: 8px 5px;
+        font-size: 13px;
+        border-bottom: 1px dashed #dddddd;
+      }
+      .print-total-row {
+        font-weight: bold;
+        border-top: 1px solid #000000;
+      }
+      .print-footer {
+        border-top: 2px dashed #000000;
+        margin-top: 30px;
+        padding-top: 15px;
+        text-align: center;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Admin Login Overlay -->
+  <div class="admin-login-screen" id="adminLoginScreen">
+    <div class="login-card">
+      <div style="display:flex; flex-direction:column; align-items:center; margin-bottom: 2rem;">
+        <img src="assets/image.png" alt="Montana Admin Logo" class="logo-img" style="margin-bottom:1rem;">
+        <h2 style="font-family: var(--font-display); font-size:1.5rem; letter-spacing:0.05em;">MONTANA OUTDOOR ADMIN</h2>
+        <p style="color: var(--clr-text-dim); font-size: 0.85rem; text-align: center; margin-top: 0.5rem;">Akses dashboard khusus pengelola</p>
+      </div>
+
+      <form id="adminLoginForm" class="cart-form">
+        <div>
+          <label class="form-label" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--clr-text-dim);">Admin ID</label>
+          <input type="text" id="loginAdminId" placeholder="Masukkan ID (admin)" required>
+        </div>
+        <div style="margin-top:1rem;">
+          <label class="form-label" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--clr-text-dim);">Password</label>
+          <input type="password" id="loginPassword" placeholder="Masukkan Sandi (admin123)" required>
+        </div>
+        <div id="loginErrorMsg" style="color: #ff4d00; font-size: 0.85rem; text-align: center; display: none; margin-top:1rem; font-family:var(--font-mono);">
+          [!] ID atau Password salah
+        </div>
+        <button type="submit" class="btn-expedition" style="margin-top: 2rem; width:100%; justify-content:center;">
+          MASUK DASHBOARD →
+        </button>
+        <a href="index.html" class="btn-ghost" style="margin-top: 0.75rem; width:100%; justify-content:center; text-align:center;">
+          ← KEMBALI KE WEB
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Header -->
+  <header class="site-nav scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/image.png" alt="Montana Outdoor Logo" class="logo-img">
+        <span>MONTANA OUTDOOR <span style="color:var(--clr-text-dim)">ADMIN</span></span>
+      </a>
+
+      <div class="nav-right">
+        <a href="index.html" class="btn-ghost" style="padding: 0.5rem 1rem; font-size:0.85rem;">Website Utama</a>
+        <button class="btn-ghost" id="logoutAdminBtn" style="padding: 0.5rem 1rem; font-size:0.85rem; color:#ff4d00; border-color:rgba(255,77,0,0.3);">
+          Keluar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Main Dashboard -->
+  <main class="admin-main">
+    
+    <div class="admin-title-area">
+      <div>
+        <span class="overline-text">— PANEL KONTROL</span>
+        <h1 class="admin-h1">Dashboard Admin</h1>
+        <p class="admin-subtitle">Kelola inventaris dan pantau pesanan masuk secara real-time.</p>
+      </div>
+
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap;" id="openAddModalBtn">
+        <button class="btn-ghost" id="openAddAlatBtn" style="border-color:var(--clr-accent); color:var(--clr-accent);">
+          📦 + Tambah Alat
+        </button>
+        <button class="btn-expedition" id="openAddPaketBtn">
+          🏞️ + Tambah Paket Bundling
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Switcher -->
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" id="tabStockBtn">📦 Manajemen Stok</button>
+      <button class="admin-tab-btn" id="tabOrdersBtn">📋 Riwayat Pesanan <span id="ordersTabBadge" style="background:var(--clr-accent);color:#fff;border-radius:99px;padding:2px 8px;font-size:0.7rem;margin-left:6px;"></span></button>
+    </div>
+
+    <!-- Panel Manajemen Stok -->
+    <div id="panelStock">
+      <!-- Admin Metric Cards -->
+      <div class="admin-stats-grid" style="margin-bottom: 3rem;">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#e6e5df;">
+            📦
+          </div>
+          <div>
+            <span class="stat-card-title">Total Jenis Alat</span>
+            <span class="stat-card-value" id="totalItemsCount">0</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#00ff66;">
+            ✓
+          </div>
+          <div>
+            <span class="stat-card-title">Total Stok Siap</span>
+            <span class="stat-card-value" id="totalStockCount">0</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#ffb800;">
+            ⚠
+          </div>
+          <div>
+            <span class="stat-card-title">Stok Menipis</span>
+            <span class="stat-card-value" id="lowStockCount">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Visual Laporan (Chart.js) -->
+      <div class="admin-charts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div class="chart-container" style="background: var(--clr-bg-card); border: 1px solid var(--clr-border); padding: 1.5rem;">
+          <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--clr-accent); text-transform: uppercase; margin-top: 0; margin-bottom: 1.5rem; letter-spacing: 0.05em;">Distribusi Stok per Kategori</h4>
+          <div style="position: relative; height: 220px; width: 100%;">
+            <canvas id="categoryStockChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-container" style="background: var(--clr-bg-card); border: 1px solid var(--clr-border); padding: 1.5rem;">
+          <h4 style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--clr-accent); text-transform: uppercase; margin-top: 0; margin-bottom: 1.5rem; letter-spacing: 0.05em;">Alat Terpopuler di Rental (Qty Tersewa)</h4>
+          <div style="position: relative; height: 220px; width: 100%;">
+            <canvas id="popularItemsChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inventory Table Container -->
+      <div class="admin-table-wrap">
+        <div class="admin-table-toolbar">
+          <input type="text" id="adminSearchInput" class="admin-search" placeholder="Pencarian alat (nama/spesifikasi)...">
+
+          <select id="adminCategoryFilter" class="admin-select" style="padding: 0.75rem 1rem;">
+            <option value="all">Semua Kategori</option>
+            <option value="tenda">Tenda</option>
+            <option value="carrier">Ransel & Carrier</option>
+            <option value="sleeping">Sleeping Gear</option>
+            <option value="cooking">Alat Masak</option>
+            <option value="gear">Penerangan & Gear</option>
+            <option value="paket">Paket Bundling</option>
+          </select>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th>Kategori</th>
+              <th>Sewa / Hari</th>
+              <th>Stok Unit</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTableBody">
+            <!-- Injected via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Panel Riwayat Pesanan -->
+    <div id="panelOrders" style="display:none;">
+      <div class="admin-stats-grid" style="margin-bottom: 3rem;">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#4facfe;">📋</div>
+          <div>
+            <span class="stat-card-title">Total Pesanan</span>
+            <span class="stat-card-value" id="totalOrdersCount">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#ffb800;">⏳</div>
+          <div>
+            <span class="stat-card-title">Sedang Diproses</span>
+            <span class="stat-card-value" id="pendingOrdersCount">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper" style="color:#00ff66;">✓</div>
+          <div>
+            <span class="stat-card-title">Selesai</span>
+            <span class="stat-card-value" id="doneOrdersCount">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <div class="admin-table-toolbar">
+          <span style="font-family:var(--font-mono); font-size:0.85rem; color:var(--clr-text-dim);">DAFTAR PESANAN MASUK</span>
+          <button class="btn-ghost" id="refreshOrdersBtn" style="padding:0.5rem 1rem; font-size:0.8rem;">⟳ Refresh</button>
+        </div>
+        <table class="admin-table" style="min-width:900px;">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nama Pemesan</th>
+              <th>Tgl Ambil</th>
+              <th>Tgl Kembali</th>
+              <th>Durasi</th>
+              <th>Item Sewa</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <tr><td colspan="9" style="text-align:center; padding:3rem; color:var(--clr-text-dim);">Memuat data pesanan...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- MODAL 1: TAMBAH / EDIT ALAT PERLENGKAPAN                     -->
+  <!-- ============================================================ -->
+  <div class="modal" id="adminProductModal">
+    <div class="modal-backdrop" id="adminModalOverlay"></div>
+    <div class="modal-box">
+      <button class="modal-x" id="closeAdminModalBtn">✕</button>
+
+      <!-- Modal Header -->
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:2rem;">
+        <div style="width:44px; height:44px; background:var(--clr-bg-alt); border:1px solid var(--clr-accent); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">📦</div>
+        <div>
+          <p style="font-family:var(--font-mono); font-size:0.7rem; color:var(--clr-accent); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">MANAJEMEN ALAT</p>
+          <h3 style="font-family:var(--font-display); font-size:1.75rem;" id="adminModalTitle">Tambah Alat Perlengkapan</h3>
+        </div>
+      </div>
+
+      <form id="productForm">
+        <input type="hidden" id="formProductId">
+        <input type="hidden" id="formProductMode" value="alat">
+
+        <div class="form-group">
+          <label>Nama Perlengkapan</label>
+          <input type="text" id="formProdName" placeholder="Contoh: Tenda Eiger Expedition 4P" required>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Kategori</label>
+            <select id="formProdCategory" required>
+              <option value="tenda">Tenda</option>
+              <option value="carrier">Ransel &amp; Carrier</option>
+              <option value="sleeping">Sleeping Gear</option>
+              <option value="cooking">Alat Masak</option>
+              <option value="gear">Penerangan &amp; Gear</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Harga Sewa / Hari (Rp)</label>
+            <input type="number" id="formProdPrice" placeholder="40000" min="0" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Jumlah Stok</label>
+          <input type="number" id="formProdStock" placeholder="10" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label>Foto Alat</label>
+          <input type="file" id="formProdFile" accept="image/*" style="padding:0.4rem; background:var(--clr-bg-alt); border:1px solid var(--clr-border); width:100%;">
+          <small style="color:var(--clr-text-dim); font-size:0.75rem; display:block; margin-top:4px;">Atau masukkan URL gambar:</small>
+          <input type="url" id="formProdImage" placeholder="https://..." style="margin-top:4px;">
+          <div id="alatImagePreview" style="margin-top:8px; display:none; position:relative; overflow:hidden; border:1px solid var(--clr-border);">
+            <img id="alatPreviewImg" src="" alt="Preview" style="width:100%; max-height:140px; object-fit:cover; filter:grayscale(20%); display:block;">
+            <span style="position:absolute; top:6px; left:6px; background:rgba(0,0,0,0.75); font-family:var(--font-mono); font-size:0.6rem; padding:2px 8px; color:rgba(255,255,255,0.8); letter-spacing:0.06em;">PREVIEW FOTO</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Spesifikasi Singkat</label>
+          <input type="text" id="formProdSpec" placeholder="Contoh: Frame Alumunium, PU 3000mm Waterproof" required>
+        </div>
+
+        <div class="form-group">
+          <label>Deskripsi Lengkap</label>
+          <textarea id="formProdDesc" rows="3" placeholder="Penjelasan detail kondisi dan keunggulan alat..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-expedition" style="width:100%; justify-content:center; margin-top:1rem;" id="saveProductBtn">
+          SIMPAN ALAT
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: TAMBAH / EDIT PAKET BUNDLING                        -->
+  <!-- ============================================================ -->
+  <div class="modal" id="adminPaketModal">
+    <div class="modal-backdrop" id="adminPaketModalOverlay"></div>
+    <div class="modal-box" style="max-width:720px;">
+      <button class="modal-x" id="closeAdminPaketModalBtn">✕</button>
+
+      <!-- Modal Header -->
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:2rem;">
+        <div style="width:44px; height:44px; background:var(--clr-bg-alt); border:1px solid var(--clr-accent); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🏞️</div>
+        <div>
+          <p style="font-family:var(--font-mono); font-size:0.7rem; color:var(--clr-accent); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">PAKET BUNDLING</p>
+          <h3 style="font-family:var(--font-display); font-size:1.75rem;" id="adminPaketModalTitle">Tambah Paket Bundling</h3>
+        </div>
+      </div>
+
+      <form id="paketForm">
+        <input type="hidden" id="formPaketId">
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Nama Paket</label>
+            <input type="text" id="formPaketName" placeholder="Contoh: Solo Hiker, Duo, Squad" required>
+          </div>
+          <div class="form-group">
+            <label>Label / Badge Paket</label>
+            <input type="text" id="formPaketLabel" placeholder="Contoh: Paling Laris, Solo, Duo" required>
+            <small style="color:var(--clr-text-dim); font-size:0.7rem; margin-top:4px; display:block;">Tulis "Paling Laris" untuk tampil featured ⭐</small>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Harga Paket / Hari (Rp)</label>
+            <input type="number" id="formPaketPrice" placeholder="115000" min="0" required>
+            <small id="paketSuggestedPrice" style="color:var(--clr-accent); font-size:0.72rem; margin-top:5px; display:none; font-family:var(--font-mono); line-height:1.5;"></small>
+          </div>
+          <div class="form-group">
+            <label>Jumlah Stok Paket</label>
+            <input type="number" id="formPaketStock" placeholder="5" min="0" required>
+          </div>
+        </div>
+
+        <!-- Foto Paket -->
+        <div class="form-group">
+          <label>Foto Paket (Cover Kartu)</label>
+          <input type="file" id="formPaketFile" accept="image/*" style="padding:0.4rem; background:var(--clr-bg-alt); border:1px solid var(--clr-border); width:100%;">
+          <small style="color:var(--clr-text-dim); font-size:0.75rem; display:block; margin-top:4px;">Atau masukkan URL gambar:</small>
+          <input type="url" id="formPaketImage" placeholder="https://..." style="margin-top:4px;">
+          <div id="paketImagePreview" style="margin-top:8px; display:none; position:relative; overflow:hidden; border:1px solid var(--clr-border);">
+            <img id="paketPreviewImg" src="" alt="Preview" style="width:100%; max-height:140px; object-fit:cover; filter:grayscale(20%); display:block;">
+            <span style="position:absolute; top:6px; left:6px; background:rgba(0,0,0,0.75); font-family:var(--font-mono); font-size:0.6rem; padding:2px 8px; color:rgba(255,255,255,0.8); letter-spacing:0.06em;">PREVIEW FOTO</span>
+          </div>
+        </div>
+
+        <!-- Checklist Alat -->
+        <div class="form-group">
+          <label style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span>🎒 Pilih Alat yang Termasuk dalam Paket</span>
+            <span id="checkedCount" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--clr-accent); background:rgba(255,183,0,0.1); border:1px solid rgba(255,183,0,0.3); padding:2px 8px;">0 dipilih</span>
+          </label>
+          <div class="paket-checklist-box" id="paketChecklistBox">
+            <div class="checklist-empty">Memuat daftar alat...</div>
+          </div>
+          <small style="color:var(--clr-text-dim); font-size:0.7rem; margin-top:6px; display:block;">✓ Centang alat yang akan masuk ke dalam paket ini</small>
+        </div>
+
+        <!-- Isi Paket Preview (auto) -->
+        <div style="background:var(--clr-bg); border:1px solid var(--clr-border); border-left:3px solid var(--clr-accent); padding:1rem; margin-bottom:1.5rem;">
+          <p style="font-family:var(--font-mono); font-size:0.62rem; color:var(--clr-accent); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">📋 ISI PAKET (OTOMATIS DARI PILIHAN)</p>
+          <p id="paketSpecPreview" style="font-family:var(--font-mono); font-size:0.8rem; color:var(--clr-text-dim); line-height:1.7; margin:0; word-break:break-word;">Pilih alat di atas untuk membentuk isi paket...</p>
+        </div>
+
+        <div class="form-group">
+          <label>Deskripsi Paket</label>
+          <textarea id="formPaketDesc" rows="3" placeholder="Cocok untuk pendaki solo yang ingin perjalanan ringkas tanpa pusing pilih alat..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-expedition" style="width:100%; justify-content:center; margin-top:1rem;" id="savePaketBtn">
+          SIMPAN PAKET
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Container Cetak Invoice (hanya muncul saat window.print() dipicu) -->
+  <div id="printInvoiceArea"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
