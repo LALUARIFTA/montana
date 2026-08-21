@@ -278,14 +278,42 @@ function setupNavigation() {
     else navbar.classList.remove("scrolled");
   });
 
+  function closeMenu() {
+    navMenu?.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  function openMenu() {
+    navMenu?.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
   mobileToggle?.addEventListener("click", () => {
-    navMenu?.classList.toggle("active");
+    if (navMenu?.classList.contains("active")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   navMenu?.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
+      closeMenu();
     });
+  });
+
+  // Close menu dengan ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navMenu?.classList.contains("active")) {
+      closeMenu();
+    }
+  });
+
+  // Close menu saat klik di luar
+  document.addEventListener("click", (e) => {
+    if (navMenu?.classList.contains("active") && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      closeMenu();
+    }
   });
 }
 
@@ -392,14 +420,25 @@ window.openProductDetail = function(id) {
       </div>
     </div>
   `;
-  document.getElementById("productModal").classList.add("active");
+  const modal = document.getElementById("productModal");
+  modal?.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 window.closeModal = function() {
-  document.getElementById("productModal")?.classList.remove("active");
+  const modal = document.getElementById("productModal");
+  modal?.classList.remove("active");
+  document.body.style.overflow = "auto";
 }
 document.getElementById("closeModalBtn")?.addEventListener("click", closeModal);
 document.getElementById("modalOverlay")?.addEventListener("click", closeModal);
+
+// Close modal dengan ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && document.getElementById("productModal")?.classList.contains("active")) {
+    closeModal();
+  }
+});
 
 window.addToCart = function(id) {
   const p = PRODUCTS.find(x => x.id === id);
@@ -517,10 +556,37 @@ window.changeQty = function(i, d) {
 window.removeItem = function(i) { cart.splice(i, 1); updateCartUI(); }
 
 function setupCartDrawer() {
-  document.getElementById("openCartBtn")?.addEventListener("click", () => document.getElementById("cartDrawer").classList.add("active"));
-  const close = () => document.getElementById("cartDrawer").classList.remove("active");
+  const cartDrawer = document.getElementById("cartDrawer");
+  
+  function openCart() {
+    cartDrawer?.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCart() {
+    cartDrawer?.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  document.getElementById("openCartBtn")?.addEventListener("click", openCart);
+  const close = () => closeCart();
   document.getElementById("closeCartBtn")?.addEventListener("click", close);
   document.getElementById("cartOverlay")?.addEventListener("click", close);
+
+  // Close cart dengan ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && cartDrawer?.classList.contains("active")) {
+      closeCart();
+    }
+  });
+
+  // Prevent scroll jika cart panel scroll
+  const cartPanel = document.querySelector(".cart-panel");
+  if (cartPanel) {
+    cartPanel.addEventListener("touchmove", (e) => {
+      e.stopPropagation();
+    }, { passive: true });
+  }
 }
 
 function setupCheckout() {
