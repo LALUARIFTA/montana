@@ -1654,6 +1654,12 @@ button {
   .hiw-steps {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Location responsive */
+  .location > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1885,6 +1891,12 @@ button {
     height: 32px;
     min-width: 32px;
     min-height: 32px;
+  }
+
+  /* Location section responsive */
+  .location > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 }
 
@@ -2339,6 +2351,16 @@ button {
 
   .ticker-track span {
     padding: 0 1rem;
+  }
+
+  /* Location section responsive */
+  .location > div {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .location > div > div:last-child {
+    height: 350px;
   }
 }
 
