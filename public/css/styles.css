@@ -990,6 +990,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: 0.3s ease;
+  color: #fff;
 }
 
 .pkg-cta:hover {
